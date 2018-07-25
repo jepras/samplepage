@@ -17,7 +17,9 @@ export class AllCommandsTab {
                     </head>
 
                     <body>
-                    <p>`;
+                    <h1>Welcome to SamePage!</h2>
+                    <p>
+                    `;
 
                 let allCommands = "";
                 for (let key in DialogMatches) {

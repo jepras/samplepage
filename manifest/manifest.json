@@ -2,54 +2,54 @@
   "$schema": "https://statics.teams.microsoft.com/sdk/v1.3.0-beta.2/manifest/MicrosoftTeams.schema.json",
   "manifestVersion": "1.3",
   "version": "1.3",
-  "id": "<<REGISTERED_BOT_ID>>",
+  "id": "cf5fc307-c7bb-4cf8-b66a-582e0281db53",
   "packageName": "com.Template.microsoftteams",
   "developer": {
-    "name": "Bot Template",
+    "name": "SamePage",
     "websiteUrl": "https://dev.botframework.com",
     "privacyUrl": "https://privacy.microsoft.com/en-us/privacystatement",
     "termsOfUseUrl": "https://www.botframework.com/Content/Microsoft-Bot-Framework-Preview-Online-Services-Agreement.htm"
   },
   "name": {
-    "short": "Bot Template",
-    "full": "Bot Template"
+    "short": "SamePage",
+    "full": "SamePage"
   },
   "description": {
-    "short": "Bot Template - a template for creating a bot",
-    "full": "The Bot Template is meant to create an envrionment in which to easily create a bot."
+    "short": "SamePage - Team Reporting Automatized",
+    "full": "Automate the reporting from your team and get a viewable digest"
   },
   "icons": {
-    "outline": "bot_blue.png",
-    "color": "bot_blue.png"
+    "outline": "bot-blue.png",
+    "color": "bot-blue.png"
   },
   "accentColor": "#0079bf",
   "configurableTabs": [
     {
-      "configurationUrl": "<<BASE_URI>>/tab/tabConfig/index.html",
+      "configurationUrl": "https://effed09b.ngrok.io/tab/tabConfig/index.html",
       "canUpdateConfiguration": false,
       "scopes": [ "team", "groupchat" ]
     }
   ],
   "staticTabs": [
     {
-      "contentUrl": "<<BASE_URI>>/loading",
+      "contentUrl": "https://effed09b.ngrok.io/loading",
       "entityId": "1on1test123",
-      "name": "Bot Info",
+      "name": "SamePage Info",
       "scopes": [
         "team",
         "personal"
       ]
     },
     {
-      "contentUrl": "<<BASE_URI>>/tab-auth/simple",
+      "contentUrl": "https://effed09b.ngrok.io/tab-auth/simple",
       "entityId": "simpleAuth",
-      "name": "Simple Auth",
+      "name": "Login",
       "scopes": [
         "personal"
       ]
     },
     {
-      "contentUrl": "<<BASE_URI>>/tab-auth/silent",
+      "contentUrl": "https://effed09b.ngrok.io/tab-auth/silent",
       "entityId": "silentAuth",
       "name": "Silent Auth",
       "scopes": [
@@ -59,7 +59,7 @@
   ],
   "bots": [
     {
-      "botId": "<<REGISTERED_BOT_ID>>",
+      "botId": "cf5fc307-c7bb-4cf8-b66a-582e0281db53",
       "scopes": [ "team", "personal", "groupchat" ],
       "commandLists": [
         {
@@ -153,7 +153,7 @@
   ],
   "composeExtensions": [
     {
-      "botId": "<<REGISTERED_BOT_ID>>",
+      "botId": "cf5fc307-c7bb-4cf8-b66a-582e0281db53",
       "canUpdateConfiguration": true,
       "commands": [
         {
@@ -177,6 +177,6 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "<<BASE_URI_DOMAIN>>"
+    "effed09b.ngrok.io"
   ]
 }

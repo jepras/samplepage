@@ -20,34 +20,22 @@ export class DefaultTab {
 
                     <body>
                         <p>
-                            These are links to the source code for all of the example dialogs given in the template.
+                            Welcome to SamePage!
                         </p>`;
 
-                let files = fs.readdirSync("./public/exampleDialogs");
-                for (let i = 0; i < files.length; i++) {
-                    let currFile = files[i];
-                    let fileName = path.parse(currFile).name;
-                    let fileExtension = path.parse(currFile).ext;
-                    if (fileExtension === ".txt") {
-                        htmlPage += `<br>
-                        <a href="/exampleDialogs/` + fileName +  `.txt">` + fileName + `.ts</a>`;
-                    }
-                }
-
                 htmlPage += `
+
                     <br>
+                    <p id="currentTheme">Reporting</p>
                     <br>
+                    <button onclick="showAllCommands()">Click to give update</button>
                     <br>
+                    <p>Dashboard</p>
+                    <button onclick="getDeeplink()">Click to get digest of team member's plans, problems and progress</button>
                     <br>
-                    <p id="currentTheme">Current theme will show here when you change it in Teams settings - it can be found on the initial load by fetching the context</p>
+                    <p>Settings</p>
                     <br>
-                    <button onclick="showAllCommands()">Click to See All Commands</button>
-                    <br>
-                    <p>NOTE: Trying to get the deeplink when this is a static tab does not work. This feature only works when this is a configurable tab.</p>
-                    <button onclick="getDeeplink()">Click to get a deeplink to this tab</button>
-                    <br>
-                    <br>
-                    <button onclick="showContext()">Click to Show Tab's Context</button>
+                    <button onclick="showContext()">Click for settings</button>
                     <p id="contextOutput"></p>
                     <script>
                         var microsoftTeams;
@@ -75,6 +63,17 @@ export class DefaultTab {
                     </script>
                     </body>
                     </html>`;
+
+                let files = fs.readdirSync("./public/exampleDialogs");
+                for (let i = 0; i < files.length; i++) {
+                    let currFile = files[i];
+                    let fileName = path.parse(currFile).name;
+                    let fileExtension = path.parse(currFile).ext;
+                    if (fileExtension === ".txt") {
+                        htmlPage += `<br>
+                        <a href="/exampleDialogs/` + fileName +  `.txt">` + fileName + `.ts</a>`;
+                    }
+                }
 
                 res.send(htmlPage);
             } catch (e) {
