@@ -25,14 +25,14 @@
   "accentColor": "#0079bf",
   "configurableTabs": [
     {
-      "configurationUrl": "https://effed09b.ngrok.io/tab/tabConfig/index.html",
+      "configurationUrl": "https://officeteamreporter.azurewebsites.net/tab/tabConfig/index.html",
       "canUpdateConfiguration": false,
       "scopes": [ "team", "groupchat" ]
     }
   ],
   "staticTabs": [
     {
-      "contentUrl": "https://effed09b.ngrok.io/loading",
+      "contentUrl": "https://officeteamreporter.azurewebsites.net/loading",
       "entityId": "1on1test123",
       "name": "SamePage Info",
       "scopes": [
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "contentUrl": "https://effed09b.ngrok.io/tab-auth/simple",
+      "contentUrl": "https://officeteamreporter.azurewebsites.net/tab-auth/simple",
       "entityId": "simpleAuth",
       "name": "Login",
       "scopes": [
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "contentUrl": "https://effed09b.ngrok.io/tab-auth/silent",
+      "contentUrl": "https://officeteamreporter.azurewebsites.net/tab-auth/silent",
       "entityId": "silentAuth",
       "name": "Silent Auth",
       "scopes": [
@@ -177,6 +177,6 @@
     "messageTeamMembers"
   ],
   "validDomains": [
-    "effed09b.ngrok.io"
+    "officeteamreporter.azurewebsites.net"
   ]
 }

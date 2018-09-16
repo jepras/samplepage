@@ -14,7 +14,7 @@
             "sourceMaps": true,
             "outFiles": [ "${workspaceRoot}/build/**/*.js" ],
             "env": {
-                "BASE_URI": "https://effed09b.ngrok.io",
+                "BASE_URI": "https://officeteamreporter.azurewebsites.net/",
                 "MICROSOFT_APP_ID": "cf5fc307-c7bb-4cf8-b66a-582e0281db53",
                 "MICROSOFT_APP_PASSWORD": "uwnAAZBX357?~jwsqNI93:?",
                 "LUIS_ENDPOINT_URI": "",
@@ -40,7 +40,7 @@
             "sourceMaps": true,
             "outFiles": [ "${workspaceRoot}/build/**/*.js" ],
             "env": {
-                "BASE_URI": "https://effed09b.ngrok.io",
+                "BASE_URI": "https://officeteamreporter.azurewebsites.net/",
                 "MICROSOFT_APP_ID": "cf5fc307-c7bb-4cf8-b66a-582e0281db5",
                 "MICROSOFT_APP_PASSWORD": "uwnAAZBX357?~jwsqNI93:?",
                 "LUIS_ENDPOINT_URI": "",
@@ -67,7 +67,7 @@
             "sourceMaps": true,
             "outFiles": [ "${workspaceRoot}/build/**/*.js" ],
             "env": {
-                "BASE_URI": "https://effed09b.ngrok.io",
+                "BASE_URI": "https://officeteamreporter.azurewebsites.net/",
                 "MICROSOFT_APP_ID": "cf5fc307-c7bb-4cf8-b66a-582e0281db5",
                 "MICROSOFT_APP_PASSWORD": "uwnAAZBX357?~jwsqNI93:?",
                 "LUIS_ENDPOINT_URI": "",
@@ -95,7 +95,7 @@
             "sourceMaps": true,
             "outFiles": [],
             "env": {
-                "BASE_URI": "https://effed09b.ngrok.io",
+                "BASE_URI": "https://officeteamreporter.azurewebsites.net/",
                 "MICROSOFT_APP_ID": "cf5fc307-c7bb-4cf8-b66a-582e0281db5",
                 "MICROSOFT_APP_PASSWORD": "uwnAAZBX357?~jwsqNI93:?",
                 "LUIS_ENDPOINT_URI": "",

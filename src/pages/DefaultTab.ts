@@ -26,7 +26,7 @@ export class DefaultTab {
                 htmlPage += `
 
                     <br>
-                    <p id="currentTheme">Reporting</p>
+                    <p id="currentTheme">Reporting - Trying to change</p>
                     <br>
                     <button onclick="showAllCommands()">Click to give update</button>
                     <br>

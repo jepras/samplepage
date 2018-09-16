@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-let express = require("express");
-let exphbs  = require("express-handlebars");
 let favicon = require("serve-favicon");
 let http = require("http");
 let path = require("path");
@@ -10,6 +8,7 @@ import { VSTSTokenOAuth2API } from "./apis/VSTSTokenOAuth2API";
 import * as teams from "botbuilder-teams";
 import { LoadingTab } from "./pages/LoadingTab";
 import { DefaultTab } from "./pages/DefaultTab";
+import { NewTab } from "./pages/NewTab";
 import { AllCommandsTab } from "./pages/AllCommandsTab";
 import { VSTSAuthTab } from "./pages/VSTSAuthTab";
 import { VSTSAuthFlowStartPopUp } from "./pages/VSTSAuthFlowStartPopUp";
@@ -30,6 +29,9 @@ import * as builder from "botbuilder";
 //     appInsights.setup(instrumentationKey).start();
 // }
 
+/* Express setup */
+let express = require("express");
+let exphbs  = require("express-handlebars");
 let app = express();
 
 app.set("port", process.env.PORT || 3978);
@@ -49,6 +51,7 @@ app.set("view engine", "hbs");
 // Tab and Popup urls
 app.get("/loading", LoadingTab.getRequestHandler());
 app.get("/default", DefaultTab.getRequestHandler());
+app.get("/new", NewTab.getRequestHandler());
 app.get("/allCommands", AllCommandsTab.getRequestHandler());
 app.get("/vstsAuth", VSTSAuthTab.getRequestHandler());
 app.get("/vstsAuthFlowStart", VSTSAuthFlowStartPopUp.getRequestHandler());
