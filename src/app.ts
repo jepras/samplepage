@@ -1,8 +1,16 @@
 import { Request, Response } from "express";
+let express = require("express");
+let exphbs  = require("express-handlebars");
 let favicon = require("serve-favicon");
+
 let http = require("http");
 let path = require("path");
 let config = require("config");
+
+// Handle form input
+const bodyParser = require("body-parser");
+const { body, validationResult } = require("express-validator/check");
+
 import { Bot } from "./Bot";
 import { VSTSTokenOAuth2API } from "./apis/VSTSTokenOAuth2API";
 import * as teams from "botbuilder-teams";
@@ -30,14 +38,14 @@ import * as builder from "botbuilder";
 // }
 
 /* Express setup */
-let express = require("express");
-let exphbs  = require("express-handlebars");
 let app = express();
 
 app.set("port", process.env.PORT || 3978);
 app.use(express.static(path.join(__dirname, "../../public")));
 app.use(express.static(path.join(__dirname, "./public"))); // used for static dialogs
 app.use(favicon(path.join(__dirname, "../../public/assets", "favicon.ico")));
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 let handlebars = exphbs.create({
     extname: ".hbs",
@@ -70,7 +78,33 @@ app.get("/tab-auth/silent-end", (req, res) => { res.render("tab-auth/silent-end"
 app.get("/", ManifestCreatorStart.getRequestHandler());
 app.get("/createdManifest", ManifestCreatorEnd.getRequestHandler());
 
-// Create Teams connector for the bot
+// Forms
+app.get("/tab-auth/simple2", (req, res) => { res.render("tab-auth/simple2"); });
+app.post("/tab-auth/simple2", [
+    body("name")
+      .isLength({ min: 1 })
+      .withMessage("Please enter a name"),
+    body("email")
+      .isLength({ min: 1 })
+      .withMessage("Please enter an email")],
+(req, res) => {
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+        res.send("Thank you for your registration!");
+    } else {
+        res.render("tab-auth/simple2", {
+        title: "Registration form",
+        errors: errors.array(),
+        data: req.body,
+        });
+    }
+
+    console.log(req.body);
+});
+
+    /* console.log(req.body); res.render("tab-auth/simple2"); }); */
+  // Create Teams connector for the bot
 let connector = new teams.TeamsChatConnector({
     appId: config.get("bot.botId"),
     appPassword: config.get("bot.botPassword"),

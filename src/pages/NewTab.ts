@@ -19,9 +19,32 @@ export class NewTab {
                     </head>
 
                     <body>
-                        <p>
-                            Welcome to SamePage!
-                        </p>`;
+                        <div>
+                            <p>
+                                Welcome to SamePage!
+                            </p>
+                        </div>
+                        <div>
+                            <form action="/new" method="POST">
+                                <label for="name">Name</label>
+                                <input 
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value="name"
+                                >
+
+                                <label for="email">Email</label>
+                                <input 
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value="email"
+                                >
+
+                                <input type="submit" value="Submit">
+                        </div>
+                        `;
 
                 htmlPage += `
 
