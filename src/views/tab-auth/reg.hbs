@@ -10,30 +10,26 @@
            </ul> --}}
 
         <p>
-            This sample shows the basics of handling forms.
+            Shows list of people registrered
         </p>
+        {{#if registrations.length}}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+            {{#each registrations}}
+            <tr>
+                <td>{{ name }}</td>
+                <td>{{ email }}</td>
+            </tr>
+            {{/each}}
+        </table>
+        {{else}}
+        <p>No registrations yet :(</p>
+        {{/if}}
 
-        <div>
-            <form action="/tab-auth/simple2" method="POST">
-                <label for="name">Name</label>
-                <input 
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={{data.name}}
-                >
-
-                <label for="email">Email</label>
-                <input 
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={{data.email}}
-                >
-
-                <input type="submit" value="Submit">
-        </div>
-
+        
         <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha384-VC7EHu0lDzZyFfmjTPJq+DFyIn8TUGAJbEtpXquazFVr00Q/OOx//RjiZ9yU9+9m" crossorigin="anonymous"></script>
         <script src="https://statics.teams.microsoft.com/sdk/v1.0/js/MicrosoftTeams.min.js" integrity="sha384-SNENyRfvDvybst1u0LawETYF6L5yMx5Ya1dIqWoG4UDTZ/5UAMB15h37ktdBbyFh" crossorigin="anonymous"></script>
 

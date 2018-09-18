@@ -11,6 +11,12 @@ let config = require("config");
 const bodyParser = require("body-parser");
 const { body, validationResult } = require("express-validator/check");
 
+// db config
+/* require("dotenv").config(); */
+const mongoose = require("mongoose");
+require("./models/Registration");
+const Registration = mongoose.model("Registration");
+
 import { Bot } from "./Bot";
 import { VSTSTokenOAuth2API } from "./apis/VSTSTokenOAuth2API";
 import * as teams from "botbuilder-teams";
@@ -91,7 +97,10 @@ app.post("/tab-auth/simple2", [
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
-        res.send("Thank you for your registration!");
+        const registration = new Registration(req.body);
+        registration.save()
+            .then(() => { res.send("Thank you for your registration!"); })
+            .catch(() => { res.send("Sorry! Something went wrong."); });
     } else {
         res.render("tab-auth/simple2", {
         title: "Registration form",
@@ -103,8 +112,37 @@ app.post("/tab-auth/simple2", [
     console.log(req.body);
 });
 
-    /* console.log(req.body); res.render("tab-auth/simple2"); }); */
-  // Create Teams connector for the bot
+// reg
+app.get("/tab-auth/reg", (req, res) => {/* res.render("tab-auth/reg"); }); */
+    Registration.find()
+    .then((registrations) => {
+      res.render("tab-auth/reg", { title: "Listing registrations", registrations });
+    })
+    .catch(() => { res.send("Sorry! Something went wrong."); });
+});
+
+// DB Config
+mongoose.connect("mongodb://jepras:Jepp2629@ds245238.mlab.com:45238/firstdb");
+mongoose.Promise = global.Promise;
+mongoose.connection
+  .on("connected", () => {
+    console.log(`Mongoose connection open on ${"mongodb://jepras:Jepp2629@ds245238.mlab.com:45238/firstdb"}`);
+  })
+  .on("error", (err) => {
+    console.log(`Connection error: ${err.message}`);
+  });
+
+// DB show
+/* app.get("/tab-auth/registrations", (req, res) => {
+    Registration.find()
+        .then((registrations) => {
+            res.render("/tab-auth/registrations");
+        })
+        .catch(() => { res.send("Sorry! Something went wrong."); });
+ }); */
+
+/* console.log(req.body); res.render("tab-auth/simple2"); }); */
+// Create Teams connector for the bot
 let connector = new teams.TeamsChatConnector({
     appId: config.get("bot.botId"),
     appPassword: config.get("bot.botPassword"),
